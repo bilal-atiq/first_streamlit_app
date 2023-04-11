@@ -37,9 +37,9 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 streamlit.dataframe(fruityvice_normalized)
 
-#add_my_fruit = streamlit.text_input('enter seconf fruit')
+add_my_fruit = streamlit.text_input('enter seconf fruit')
 
-#streamlit.write(add_my_fruit)
+streamlit.write(add_my_fruit)
 
 streamlit.stop()
 
@@ -51,9 +51,9 @@ my_data_row = my_cur.fetchall()
 streamlit.header("Fruit load list contains:")
 streamlit.dataframe(my_data_row)
 
-add_my_fruit = streamlit.text_input('enter seconf fruit')
+#add_my_fruit = streamlit.text_input('enter second fruit')
 
-streamlit.write(add_my_fruit)
+#streamlit.write(add_my_fruit)
 
 streamlit.write('thanks for adding', add_my_fruit)
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
