@@ -37,7 +37,9 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 streamlit.dataframe(fruityvice_normalized)
 
-add_my_fruit = streamlit.text_input('enter seconf fruit', add_my_fruit)
+add_my_fruit = streamlit.text_input('enter seconf fruit')
+
+streamlit.write(add_my_fruit)
 
 streamlit.stop()
 
