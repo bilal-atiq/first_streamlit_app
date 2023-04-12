@@ -60,7 +60,14 @@ def insert_row_snowflake(new_fruit):
         
 add_my_fruit = streamlit.text_input('enter seconf fruit')
 if streamlit.button('add a fruit to the list'):
-        my_cnx = snowflaake.connector.connect(**streamlit.secrets["snowflake"])
+        my_cnx = snowflaake.connector.connect(
+        user='BilalAtiq',
+        password='Bahriacollege10',
+        account='ey73669',
+        warehouse='PC_RIVERY_WH',
+        database='PC_RIVERY_DB',
+        schema='PUBLIC'
+        )
         back_from_function = insert_row_snowflake(add_my_fruit)
         streamlit.text(back_from_function)
 
