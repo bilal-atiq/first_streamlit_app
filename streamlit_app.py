@@ -53,9 +53,7 @@ try:
 except URLError as e:
   streamlit.error()
 
-add_my_fruit = streamlit.text_input('enter seconf fruit')
 
-streamlit.write(add_my_fruit)
 
 streamlit.stop()
 
@@ -71,5 +69,19 @@ streamlit.dataframe(my_data_row)
 
 #streamlit.write(add_my_fruit)
 
-streamlit.write('thanks for adding', add_my_fruit)
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+
+
+#streamlit.write(add_my_fruit)
+
+#streamlit.write('thanks for adding', add_my_fruit)
+#allow user to add fruit
+def insert_row_snowflake(new_fruit):
+        with my_cnx_cursor() as my_cur:
+                my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+                return "thanks for adding" + new_fruit
+        
+ add_my_fruit = streamlit.text_input('enter seconf fruit')
+if streamlit.button('add a fruit to the list'):
+        my_cnx = snowflaake.connector.connect(**streamlit.secrets["snowflake"])
+        back_from_function = insert_row_snowflake(add_my_fruit)
+        streamlit.text(back_from_function)
